@@ -83,7 +83,7 @@
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
-		console.log("hi!"); // Hi! I've added super helpful hints if you want to add stuff in the code
+		console.log("hi!"); // Hi! I've added super helpful comments if you want to edit stuff in the code
 		// note: for strings, please use a tilde ~ if you want to add a new line
 		var step = 0; // This is used by terminalStart to analyze what step we're in
 		var attempts = 0; // Number of times the player entered a command/password, used in steps 2 and 3.
@@ -103,7 +103,7 @@
 			["Pigs", "Cows", "Koalas", "Humans"],
 			["organsystems.txt", "cells.txt"]
 		]; // List of directories.
-		var corList = [0, 1, 0, 2, 0, 3, 0];
+		var corList = [0, 1, 0, 2, 0, 3, 0]; // A list of the correct 'answers' for the correct file. Will change soon.
 		var calcTime = function(s) { // Calculates the length of time it'll take for text in the terminal to load.
 			let ans = 0;
 			for(let i = 0; i < s.length; i++) {
@@ -129,7 +129,7 @@
 			setTimeout(() => {evt.className = "eventtext hidden"}, 3000)
 		}
 		var printText = function(s, x = 0) { // Prints text in the terminal
-			if(x==0 && isRunning) {
+			if(x==0 && isRunning) { // Checks if another printText is running
 				setTimeout(() => {printText(s, x)}, 10);
 				return;
 			}
@@ -173,8 +173,8 @@
 			}
 			else if(x>0) isReady = true;
 		}
-		var addInput = function() { // Adds an input box.
-			if(!(document.getElementById("terminal").innerHTML.charAt(document.getElementById("terminal").innerHTML.length-2) == '|' || document.getElementById("terminal").innerHTML.charAt(document.getElementById("terminal").innerHTML.length-2) == ':')) {
+		var addInput = function() { // Adds an input box. This is for the forms and stuff.
+			if(!(document.getElementById("terminal").innerHTML.charAt(document.getElementById("terminal").innerHTML.length-2) == '|' || document.getElementById("terminal").innerHTML.charAt(document.getElementById("terminal").innerHTML.length-2) == ':')) { // Checks if the last character is a | or a : before adding an input box.
 				console.log("Trying to add input.");
 				setTimeout(addInput, 10);
 				return;
@@ -186,7 +186,7 @@
 			document.getElementById("terminal").appendChild(inpform); 
 			document.getElementById("playerInput").focus();
 		}
-		var readInput = function() { // Function for reading the input and replacing the box with text. MUST BE FOLLOWED by a validator once called
+		var readInput = function() { // Function for reading the input and replacing the box with text. MUST BE FOLLOWED by a validator once called (e.g. "Username accepted", "Access granted")
 			console.log("reading input!");
 			let inp = document.getElementById("playerInput").value;
 			let termi = document.getElementById("terminal");
@@ -196,11 +196,11 @@
 		}
 
 		var terminalStart = function() { // The "main" function with the game flow; it will be called once you click start or press enter
-			if(isReady == false && step == 0) {
+			if(isReady == false && step == 0) { // Makes it so you can't press enter while Lizzie is talking.
 				printEvent("Lizzie isn't finished talking yet.")
 				$(window).scrollTop(0);
 			}
-			isReady = false; // Makes it so you can't press enter while the command is commanding.
+			isReady = false; // Makes it so you can't press enter while the terminal is printing text.
 			console.log(step);
 			if(step == 0) { // Step 0: the intro step
 				$("#startButton").hide();
@@ -265,7 +265,7 @@
 			}
 			else if(step == 3) { // Step 3: the navigation step
 				let inp = readInput();
-				let arr = inp.split(" ", 2);
+				let arr = inp.split(" ", 2); // Splits the input into two: the command and the directory/filename.
 				console.log(arr[0]);
 				if(arr[0] == "ls") {
 					printText("~~List of contents in the current directory:");
@@ -323,7 +323,7 @@
 			}
 		}
 
-		$(document).ready(function() { // Checks if the page is fully loaded before it starts up functions.
+		$(document).ready(function() { // Checks if the page is fully loaded before it starts up jQuery functions.
 
 			// Below here, put all the starting functions. They will run once the page is ready.
 
