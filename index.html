@@ -94,7 +94,8 @@
 		var layer = 0; // The layer the player is in. Used in step 3.
 		var isRunning = false; // A last resort, used in step 3 to determine if a function is running or not.
 		var currS = ""; // A last resort, used in step 3 to determine the current string being printed.
-		var priority = 0; // A last resort, checks the priority for functions. Lower is more urgent. Lower-priority functions go first.
+		var priority = 0; // A last resort, checks the priority for printText function calls. Lower is more urgent. Lower-priority functions go first.
+		var maxPriority = 0; // A last resort, used in step 3 to determine the highest priority.
 		var dirList = [
 			["Documents", "Downloads", "Games", "Music"],
 			["Physics", "Biology", "Chemistry", "Math", "Computer Science"],
