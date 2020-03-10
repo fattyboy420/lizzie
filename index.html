@@ -213,7 +213,7 @@
 				let inp = readInput();
 				if(inp == "stomach") {
 					printText("~~.`.`.`~~Password: ");
-					setTimeout(() => {addSpeech("Alright, that IS a valid username. Cool.~~Come on, Lizzie, it's time to tackle the password.~~(goes through notes)~~Okay then, from what I've found it's an enzyme produced by the stomach... I'm not sure which one it is, so I guess I'll have to input one of them.")}, calcTime("~~.`.`.`~~"));
+					setTimeout(() => {addSpeech("Alright, that IS a valid username. Cool.~~Come on, Lizzie, it's time to tackle the password.~~(goes through notes)~~Okay then, from what I've found it's a hormone produced by the stomach... I'm not sure which one it is, so I guess I'll have to input one of them.")}, calcTime("~~.`.`.`~~"));
 					setTimeout(() => {addInput();}, calcTime("~~.`.`.`~~Password: "));
 					isFirst = true;
 					step++;
@@ -238,11 +238,11 @@
 					setTimeout(() => {
 						var s;
 						if(attempts > 2) {
-							s = "That's it? Wow.~~I can't believe I took " + attempts.toString() + " attempts to get that.~~The enzyme that makes us feel hungry.`.`.` go figure.";
+							s = "That's it? Wow.~~I can't believe I took " + attempts.toString() + " attempts to get that.~~The hormone that makes us feel hungry.`.`.` go figure.";
 							addSpeech(s);
 						}
 						else {
-							s = "That's it? Wow.~~The enzyme that makes us feel hungry.`.`.` go figure.";
+							s = "That's it? Wow.~~The hormone that makes us feel hungry.`.`.` go figure.";
 							addSpeech(s);
 						}
 					}, calcTime("~~.`.`.`~~"));
@@ -258,7 +258,7 @@
 						setTimeout(() => {addInput()}, calcTime("~~.`.`.`~~Access denied.~~Password: "))
 					}
 					else {
-						setTimeout(() => {addSpeech("Nope, wrong enzyme. I'm getting hungrier by the minute...")}, calcTime("~~.`.`.`~~"));
+						setTimeout(() => {addSpeech("Nope, wrong hormone. I'm getting hungrier by the minute...")}, calcTime("~~.`.`.`~~"));
 						setTimeout(() => {addInput()}, calcTime("~~.`.`.`~~Access denied.~~Password: "));
 					}
 				}
